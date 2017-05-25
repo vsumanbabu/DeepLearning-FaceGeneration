@@ -1,0 +1,11 @@
+conda env create -f environment.yaml
+source activate dlnd-facegeneration
+--jupyter notebook dlnd_face_generation.ipynb
+pip install -U floyd-cli
+floyd login
+git clone https://github.com/ludwiktrammer/deep-learning.git
+cd face_generation
+floyd init dlnd_face_generation
+floyd run --gpu --env tensorflow --mode jupyter --data R5KrjnANiKVhLWAkpXhNBe
+floyd stop ID
+
